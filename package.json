@@ -1,0 +1,23 @@
+{
+  "name": "fluxemail",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:full": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "db:push": "cd packages/db && pnpm drizzle-kit push",
+    "db:generate": "cd packages/db && pnpm drizzle-kit generate",
+    "db:studio": "cd packages/db && pnpm drizzle-kit studio",
+    "docker:db:up": "docker compose up -d postgres",
+    "docker:db:down": "docker compose down"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
