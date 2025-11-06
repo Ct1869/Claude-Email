@@ -1,12 +1,9 @@
-import { useEffect } from 'react';
-import { LoginView } from './components/auth/login';
-import { InboxView } from './components/inbox/inbox-view';
+import React from 'react';
 import { useAuthStore } from './stores/auth.store';
-function App() {
-const { user, isLoading, checkAuth } = useAuthStore();
-useEffect(() => { checkAuth(); }, [checkAuth]);
-if (isLoading) return (<div>Loading...</div>);
-if (!user) return <LoginView />;
-return <InboxView />;
+import { Login } from './components/auth/login';
+import { Dashboard } from './components/dashboard';
+
+export default function App() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  return isAuthenticated ? <Dashboard /> : <Login />;
 }
-export default App;
